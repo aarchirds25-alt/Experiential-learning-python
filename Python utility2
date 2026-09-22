@@ -1,0 +1,197 @@
+1. display_board()
+
+Purpose: To display the current game board.
+
+FUNCTION display_board
+    Print first row of board
+    Print separator line
+    Print second row of board
+    Print separator line
+    Print third row of board
+END FUNCTION
+
+
+
+2. get_move(player)
+
+Purpose: To take the position from the current player.
+
+FUNCTION get_move(player)
+    Repeat
+        Ask the player to enter a position from 1 to 9
+
+        If the input is a number
+            Return the number
+        Otherwise
+            Display "Please enter a number"
+    Until a valid number is entered
+END FUNCTION
+
+
+3. validate_move(move)
+
+Purpose: To check whether the player's move is valid.
+
+FUNCTION validate_move(move)
+
+    If move is less than 1 OR greater than 9
+        Return False
+
+    If the selected position is already occupied
+        Return False
+
+    Otherwise
+        Return True
+
+END FUNCTION
+
+
+4. check_winner(player)
+
+Purpose: To check whether a player has won.
+
+FUNCTION check_winner(player)
+
+    Check all 3 rows
+    Check all 3 columns
+    Check both diagonals
+
+    If any row, column, or diagonal
+    contains the same player's symbol
+        Return True
+
+    Otherwise
+        Return False
+
+END FUNCTION
+
+
+
+5. check_draw()
+
+Purpose: To check whether the game is a draw.
+
+FUNCTION check_draw
+
+    If all positions of the board are filled
+        Return True
+
+    Otherwise
+        Return False
+
+END FUNCTION
+6. switch_player(player)
+
+Purpose: To change the turn from one player to another.
+
+FUNCTION switch_player(player)
+
+    If current player is X
+        Change player to O
+
+    Otherwise
+        Change player to X
+
+    Return the new player
+
+END FUNCTION
+
+
+7. reset_game()
+
+Purpose: To start a new game with an empty board.
+
+FUNCTION reset_game
+
+    Create a new empty board
+    Make all 9 positions empty
+
+END FUNCTION
+
+
+8. play_game()
+
+Purpose: To control the complete game.
+
+FUNCTION play_game
+
+    Repeat
+
+        Reset the board
+
+        Set starting player as X
+
+        Repeat
+
+            Display the board
+
+            Get move from current player
+
+            Check whether the move is valid
+
+            If move is not valid
+                Show error message
+                Ask for move again
+
+            Otherwise
+                Place player's symbol on the board
+
+                Check if the player has won
+
+                If player has won
+                    Display winner
+                    Stop current game
+
+                Check if the board is full
+
+                If board is full
+                    Display draw
+                    Stop current game
+
+                Change the player
+
+        Until game is over
+
+        Ask the user if they want to play again
+
+    Until user chooses No
+
+    Display thank-you message
+
+END FUNCTION
+
+
+Overall Pseudocode Flow
+START
+   ↓
+Create empty 3×3 board
+   ↓
+Start Player X
+   ↓
+Display Board
+   ↓
+Get Player Move
+   ↓
+Validate Move
+   ↓
+Invalid? → Ask Again
+   ↓
+Place X or O
+   ↓
+Check Winner
+   ↓
+Winner? → Display Winner
+   ↓
+Check Draw
+   ↓
+Draw? → Display Draw
+   ↓
+Switch Player
+   ↓
+Repeat Game
+   ↓
+Play Again?
+   ↓
+YES → Reset Board
+   ↓
+NO → END
